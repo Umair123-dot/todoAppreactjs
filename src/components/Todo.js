@@ -4,7 +4,7 @@ import "../App.css"
 
 const getLocalItmes = () => {
     let list = localStorage.getItem('lists');
-    console.log(list);
+    
 
     if (list) {
         return JSON.parse(localStorage.getItem('lists'));
@@ -45,7 +45,7 @@ const Todo = () => {
     }
 
     
-    // delete the items
+   
     const deleteItem = (index) => {
         const updateditems = items.filter((elem) => {
             return index !== elem.id;
@@ -103,7 +103,7 @@ const Todo = () => {
                     </div>
 
                     <div className="showItems">
-                        {/* this is show */}
+                        
                         {
                             items.map((elem) => {
                                 return (
@@ -121,7 +121,7 @@ const Todo = () => {
                        
                     </div>
                 
-                    {/* clear */}
+                 
                     <div className="showItems">
                         <button className="btn effect04" data-sm-link-text="Remove All" onClick={removeAll}><span> CHECK LIST </span> </button>
                     </div>
