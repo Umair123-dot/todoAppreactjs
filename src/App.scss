@@ -16,25 +16,30 @@ html {
   background: #060822;
   display: flex;
   justify-content: center;
+  .child-div {
+    text-align: center;
+    margin-top: 12rem;
+    
+    figure{
+      img{
+        width: 10rem;
+        height: 8rem;
+      }
+      figcaption {
+        color: #fff;
+        font-size: 2.2rem;
+        padding-top: 2rem;
+        text-transform: capitalize;
+      }
+    
+  }
+}
 
 }
 
-.child-div {
-  text-align: center;
-  margin-top: 12rem;
-}
 
-.child-div figure img {
-  width: 10rem;
-  height: 8rem;
-}
 
-.child-div figure figcaption {
-  color: #fff;
-  font-size: 2.2rem;
-  padding-top: 2rem;
-  text-transform: capitalize;
-}
+
 
 input {
 
@@ -115,7 +120,7 @@ input:focus {
   padding: 1.2rem 1rem;
   border-radius: 0.5rem;
   margin-bottom: 0.7rem;
-  margin-left: 1rem;
+  margin-left: 0rem;
   min-width: 40rem;
   word-break: break-word;
   background: rgb(85, 41, 220);
@@ -180,11 +185,12 @@ input:focus {
   text-decoration: none;
   text-transform: uppercase;
   width: 100%;
+  hover {
+    text-decoration: none;
+  }
+  
 }
 
-.btn:hover {
-  text-decoration: none;
-}
 
 .effect04 {
   --uismLinkDisplay: var(--smLinkDisplay, inline-flex);
@@ -229,12 +235,30 @@ input:focus {
   transform: translateY(0) scale(1, 1);
 }
 
+.text-input {
+  position: relative;
+input{
+  margin-top: 0;
+
+}
+  .icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 20px;
+  }
+}
+
 @media only screen and (max-width: 767px) {
 
-  input,
-  .eachItem {
-    
-    margin-left: 8px;
-    min-width: 28rem;
+
+  .addItems input {
+    min-width: 100%;
+  }
+
+  .showItems .eachItem {
+
+    margin-left: 0;
+    min-width: 100%;
   }
 }

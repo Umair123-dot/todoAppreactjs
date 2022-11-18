@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import todo from "../images/todo.svg";
-import "../App.css"
+import Button from './Button';
 
 const getLocalItmes = () => {
     let list = localStorage.getItem('lists');
@@ -19,6 +19,8 @@ const Todo = () => {
     const [items, setItems] = useState(getLocalItmes());
     const [toggleSubmit, setToggleSubmit] = useState(true);
     const [isEditItem, setIsEditItem] = useState(null);
+    // loading
+    const [loading,setLoading]=useState(false);
 
     const addItem = () => {
         if (!inputData) {
@@ -41,7 +43,7 @@ const Todo = () => {
             const allInputData = { id: new Date().getTime().toString(), name: inputData }
             setItems([...items, allInputData]);
             setInputData('')
-        } 
+        }
     }
 
 
@@ -90,13 +92,13 @@ const Todo = () => {
                     <figcaption>Add Your List Here </figcaption>
                 </figure>
 
-                <div className="addItems">
+                <div className="addItems text-input">
                     <input type="text" placeholder=" Add Items..."
                         value={inputData}
                         onChange={(e) => setInputData(e.target.value)}
                     />
                     {
-                        toggleSubmit ? <i className="fa fa-plus add-btn" title="Add Item" onClick={addItem}></i> :
+                        toggleSubmit ? <i className="fa fa-plus add-btn icon" title="Add Item" onClick={addItem}></i> :
                             <i className="far fa-edit add-btn" title="Update Item" onClick={addItem}></i>
                     }
 
@@ -123,6 +125,7 @@ const Todo = () => {
 
 
                 <div className="showItems">
+                    
                     <button className="btn effect04" data-sm-link-text="Remove All" onClick={removeAll}><span> CHECK LIST </span> </button>
                 </div>
             </div>
